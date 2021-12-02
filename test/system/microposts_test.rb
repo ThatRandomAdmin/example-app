@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class MicropostsTest < ApplicationSystemTestCase
+class Test < ApplicationSystemTestCase
   setup do
-    @micropost = microposts(:one)
+    @micropost = (:one)
   end
 
   test "visiting the index" do
-    visit microposts_url
-    assert_selector "h1", text: "Microposts"
+    visit _url
+    assert_selector "h1", text: ""
   end
 
   test "creating a Micropost" do
-    visit microposts_url
+    visit _url
     click_on "New Micropost"
 
     fill_in "Content", with: @micropost.content
@@ -23,7 +23,7 @@ class MicropostsTest < ApplicationSystemTestCase
   end
 
   test "updating a Micropost" do
-    visit microposts_url
+    visit _url
     click_on "Edit", match: :first
 
     fill_in "Content", with: @micropost.content
@@ -35,7 +35,7 @@ class MicropostsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Micropost" do
-    visit microposts_url
+    visit _url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
