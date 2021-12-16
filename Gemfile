@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'bootstrap-sass', '3.4.1'
+gem 'bcrypt', '3.1.13'
 gem 'factory_bot_rails'
 gem 'jbuilder', '2.10.0'
 gem 'pry'
