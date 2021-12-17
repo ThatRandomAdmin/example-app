@@ -15,7 +15,7 @@ RSpec.feature 'User visits static pages' do
 
   scenario 'User visits the about page' do
     visit about_path
-    expect(page).to have_title 'Home | Ruby on Rails Tutorial Sample App'
+    expect(page).to have_title 'About | Ruby on Rails Tutorial Sample App'
   end
 
   scenario 'User visits the contact page' do
