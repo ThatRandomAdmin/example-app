@@ -13,4 +13,4 @@ application up and running.
 
 * Deployment instructions -> Type 'Rails s' into the console where the code is stored
 
-* Test deployment -> https://example-rails-app.herokuapp.com/
+* Example deployment -> https://thatrandomadmin-rails-app.herokuapp.com/
