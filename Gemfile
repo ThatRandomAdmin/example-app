@@ -3,7 +3,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'bootstrap-sass', '3.4.1'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'bcrypt', '3.1.13'
+gem 'faker'
 gem 'gravatar'
 gem 'factory_bot_rails'
 gem 'jbuilder', '2.10.0'
