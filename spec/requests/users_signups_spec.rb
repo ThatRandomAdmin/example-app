@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe 'UsersSignups', type: :request do
+  before do
+    ActionMailer::Base.deliveries.clear
+  end
+
+  describe 'GET signup_path' do
+    subject { get signup_path }
+
+    scenario 'visiting singup page' do
+      expect(subject).to render_template('users/new')
+    end
+  end
+
   scenario 'invalid signup information' do
     get signup_path
     assert_no_difference 'User.count' do
@@ -12,15 +24,16 @@ RSpec.describe 'UsersSignups', type: :request do
     assert_template 'users/new'
   end
 
-  scenario 'valid signup information' do
-    get signup_path
-    assert_difference 'User.count', 1 do
-      post users_path, params: { user: { name: 'Example User',
-                                         email: 'user@example.com',
-                                         password: 'password',
-                                         password_confirmation: 'password' } }
+  describe 'POST signup_path' do
+    scenario 'valid signup information' do
+      expect do
+        post users_path, params: { user: { name: 'Example User',
+                                           email: 'user@example.com',
+                                           password: 'password',
+                                           password_confirmation: 'password' } }
+      end.to change { User.count }.by(1)
+      follow_redirect!
+      expect(response).to render_template('home')
     end
-    follow_redirect!
-    assert_template 'users/show'
   end
 end

@@ -68,4 +68,8 @@ RSpec.feature 'Test user data' do
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
+
+  scenario 'authenticated? should return false for a user with nil digest' do
+    expect(@user).not_to be_authenticated(:remember, '')
+  end
 end
